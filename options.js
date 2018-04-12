@@ -1,17 +1,24 @@
 const inquirer = require("./lib/inquirer");
 const log = console.log;
-const gradient = require('gradient-string');
-
+const gradient = require("gradient-string");
+const boxen = require("boxen");
 
 const mailAll = async () => {
-	const stdout = await inquirer.askAboutNewbie();
-	log(boxen('COPY AND MAIL TO ALL', {padding: 4, margin: 1, borderStyle: 'round',
-	 	borderColor:'magenta'}))
-	log(mailText(stdout.details));
-}
+	try {
+		const details = await inquirer.askAboutNewbie();
+		log(
+			gradient.fruit("copy this and compose a mail")
+		);
+		log(mailText(details));
+	} catch (err) {
+		log(
+			gradient.fruit("Guess something went wrong")
+		)
+	}
+};
 
-const mailText = (details)=>{
-return `
+const mailText = details => {
+	return `
 	Hi All,
 
 	Please join me in welcoming ${details.newbieName} to PharmEasy's ${details.team}
@@ -33,23 +40,22 @@ return `
 	Thanks,
 	${details.buddyName}
 `;
-
-} 
+};
 
 const mailNewcomer = () => {
 	log(gradient.fruit("work in progress"));
-}
+};
 
 const coolEmoji = () => {
 	log(gradient.instagram("Try Emoj by sindresorhus"));
-}
+};
 
-module.exports = (selectedOption) => {
-	if ( selectedOption === "mailAll") {
+module.exports = selectedOption => {
+	if (selectedOption === "mailAll") {
 		mailAll();
-	} else if ( selectedOption === "mailNewcomer") {
+	} else if (selectedOption === "mailNewcomer") {
 		mailNewcomer();
 	} else {
 		coolEmoji();
 	}
-}
+};
