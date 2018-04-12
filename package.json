@@ -1,0 +1,24 @@
+{
+  "name": "newbbie",
+  "version": "0.0.1",
+  "description": "A CLI that provides all utilities that are required for newcomers joining company.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sparsh Paliwal",
+  "license": "ISC",
+  "dependencies": {
+    "boxen": "^1.3.0",
+    "chalk": "^2.3.2",
+    "clear": "^0.1.0",
+    "commander": "^2.15.1",
+    "gradient-string": "^1.1.0",
+    "inquirer": "^5.2.0",
+    "lodash": "^4.17.5",
+    "minimist": "^1.2.0",
+    "nodemailer": "^4.6.4",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "ora": "^2.0.0"
+  }
+}
